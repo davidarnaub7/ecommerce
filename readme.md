@@ -19,7 +19,7 @@ npm start
 cd server
 graphql-fake --open
 ```
-Para iniciar la aplicación móbil solo hará falta:
+Para iniciar la aplicación móvil solo hará falta:
 ```
 cd catologo_cecotec
 npm i && npx pod install && react-native run-ios
