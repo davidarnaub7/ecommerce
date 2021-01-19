@@ -46,8 +46,6 @@ const Home = () => {
     setBarrier(true);
   }, 1000);
 
-  console.log(barrier);
-
   return (
     <View style={[styles.container, containerInline]}>
       <HomeHeader theme={theme} />
@@ -59,10 +57,7 @@ const Home = () => {
       {barrier ? (
         <HomeList theme={theme} products={products} />
       ) : (
-        <View
-          style={{
-            flex: 0.6,
-          }}>
+        <View style={styles.indicator}>
           <UIActivityIndicator color={theme.colors.text} size={40} r />
         </View>
       )}
@@ -74,6 +69,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-around',
+  },
+  indicator: {
+    flex: 0.6,
   },
 });
 

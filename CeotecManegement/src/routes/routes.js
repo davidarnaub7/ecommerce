@@ -8,9 +8,6 @@
  */
 import React, {useEffect} from 'react';
 
-//REDUX
-import {useSelector} from 'react-redux';
-
 //COLOR SCHEME HANDLERS
 import {useColorScheme} from 'react-native';
 import {DarkTheme, LightTheme} from '../constants/constants';
@@ -32,14 +29,10 @@ import ErrorPage from '../view/error_page/error';
 export const RouteStack = (props) => {
   const scheme = useColorScheme();
 
-  const auth = useSelector((state) => state.auth);
-
   //GIVING A TITLE TO TAB
   useEffect(() => {
     document.title = 'Cecotec';
   }, []);
-
-  console.log(auth);
 
   return (
     // Initalizing the theme color

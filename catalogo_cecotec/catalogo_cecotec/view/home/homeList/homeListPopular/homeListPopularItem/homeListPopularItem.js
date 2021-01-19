@@ -3,23 +3,24 @@
  *
  * @description: displays the productItem called from homeListPopular.js
  */
+import {useNavigation} from '@react-navigation/native';
 import React, {useState, useEffect} from 'react';
 import {
   View,
   StyleSheet,
   Image,
-  TouchableOpacity,
   Dimensions,
   Text,
   Animated,
+  TouchableOpacity,
 } from 'react-native';
 
 const WIDTH = Dimensions.get('window').width / 1.5;
 const HEIGHT = Dimensions.get('window').height / 8;
 
-const TouchableAnimated = Animated.createAnimatedComponent(TouchableOpacity);
-
 const HomeListPopularItem = ({item, theme}) => {
+  //NAV VARIABLES
+  const nav = useNavigation();
   //INLINE STYLEs
   const containerInline = {
     width: WIDTH,
@@ -45,18 +46,20 @@ const HomeListPopularItem = ({item, theme}) => {
   }, [opacity]);
 
   return (
-    <TouchableAnimated
+    <Animated.View
       style={[styles.container, containerInline, {opacity}]}
       activeOpacity={0.8}>
-      <View style={styles.row}>
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => nav.navigate('product', {product: item})}>
         <Image style={styles.img} source={item.img} resizeMethod={'scale'} />
         <View style={styles.column}>
           <Text style={[styles.name, textInline]}>{item.name}</Text>
           <Text style={[styles.category, textInline]}>{item.category}</Text>
           <Text style={[styles.price, textInline]}>{item.price + ' €'}</Text>
         </View>
-      </View>
-    </TouchableAnimated>
+      </TouchableOpacity>
+    </Animated.View>
   );
 };
 
