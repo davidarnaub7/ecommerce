@@ -1,25 +1,31 @@
-Hay tres partes:
+There are three parts :
 1. Cecotec Manegement (web)
-2. Server
-3. catologo_cecotec (móbil)
+2. Server 
+3. catologo_cecotec (mobile)
 
 
-Para iniciar la aplicación web hace falta ejecutar los siguientes comandos:
+In order to start the web app you need to run the following commands:
 ```
 cd CeotecManegement/
 yarn && yarn web
 ```
-Sin embargo, si no se arranca el servidor la aplicación no irá. De este modo, para arrancar el servidor habrá que ejecutar:
+
+However, if the server is not listening the app won't work. To run the server execute:
+
 ```
 cd server
 npm start
 ```
-(otra terminal)
+
+In other shell execute:
+ 
 ```
 cd server
 graphql-fake --open
 ```
-Para iniciar la aplicación móvil solo hará falta:
+
+To start the mobile app you just need to execute:
+
 ```
 cd catologo_cecotec
 npm i && npx pod install && react-native run-ios
